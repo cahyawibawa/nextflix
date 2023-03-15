@@ -20,9 +20,12 @@ interface Props {
   topRated: Movie[];
   actionMovies: Movie[];
   comedyMovies: Movie[];
-  horrorMovies: Movie[];
-  romanceMovies: Movie[];
-  documentaries: Movie[];
+  thrillerMovies: Movie[];
+  animationMovies: Movie[];
+  war: Movie[];
+  sciencefiction: Movie[];
+  topRatedTV: Movie[];
+  dramaMovies: Movie[];
 }
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -32,18 +35,24 @@ export async function getServerSideProps(context: NextPageContext) {
     topRated,
     actionMovies,
     comedyMovies,
-    horrorMovies,
-    romanceMovies,
-    documentaries,
+    thrillerMovies,
+    animationMovies,
+    war,
+    sciencefiction,
+    topRatedTV,
+    dramaMovies,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
     fetch(requests.fetchTopRated).then((res) => res.json()),
     fetch(requests.fetchActionMovies).then((res) => res.json()),
     fetch(requests.fetchComedyMovies).then((res) => res.json()),
-    fetch(requests.fetchHorrorMovies).then((res) => res.json()),
-    fetch(requests.fetchRomanceMovies).then((res) => res.json()),
-    fetch(requests.fetchDocumentaries).then((res) => res.json()),
+    fetch(requests.fetchThrillerMovies).then((res) => res.json()),
+    fetch(requests.fetchAnimationMovies).then((res) => res.json()),
+    fetch(requests.fetchWar).then((res) => res.json()),
+    fetch(requests.fetchScienceFiction).then((res) => res.json()),
+    fetch(requests.fetchTopRatedTV).then((res) => res.json()),
+    fetch(requests.fetchDramaMovies).then((res) => res.json()),
   ]);
 
   const session = await getSession(context);
@@ -63,9 +72,12 @@ export async function getServerSideProps(context: NextPageContext) {
       topRated: topRated.results,
       actionMovies: actionMovies.results,
       comedyMovies: comedyMovies.results,
-      horrorMovies: horrorMovies.results,
-      romanceMovies: romanceMovies.results,
-      documentaries: documentaries.results,
+      thrillerMovies: thrillerMovies.results,
+      animationMovies: animationMovies.results,
+      war: war.results,
+      sciencefiction: sciencefiction.results,
+      topRatedTV: topRatedTV.results,
+      dramaMovies: dramaMovies.results,
     },
   };
 }
@@ -73,11 +85,14 @@ const Home = ({
   netflixOriginals,
   actionMovies,
   comedyMovies,
-  documentaries,
-  horrorMovies,
-  romanceMovies,
+  war,
+  thrillerMovies,
+  animationMovies,
   topRated,
   trendingNow,
+  sciencefiction,
+  topRatedTV,
+  dramaMovies,
 }: Props) => {
   const { data: movies = [] } = useMovieList();
   const { data: favorites = [] } = useFavorites();
@@ -86,7 +101,7 @@ const Home = ({
   return (
     <>
       <Head>
-        <title>Home - Netflix</title>
+        <title>Home - Nextflix</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
@@ -97,15 +112,18 @@ const Home = ({
 
           <section className='md:space-y-24'>
             <Row title='Trending Now' movies={trendingNow} />
-            <Row title='Top Rated' movies={topRated} />
-            <Row title='Action Thrillers' movies={actionMovies} />
+            <Row title='Top Rated Movies' movies={topRated} />
+            <Row title='Top Rated TV Shows' movies={topRatedTV} />
+            <Row title='Action' movies={actionMovies} />
 
             {/* //! TODO ADD TO MY LIST */}
 
-            <Row title='Comedies' movies={comedyMovies} />
-            <Row title='Scary Movies' movies={horrorMovies} />
-            <Row title='Romance Movies' movies={romanceMovies} />
-            <Row title='Documentaries' movies={documentaries} />
+            <Row title='Comedy' movies={comedyMovies} />
+            <Row title='Thriller' movies={thrillerMovies} />
+            <Row title='Animation' movies={animationMovies} />
+            <Row title='Drama' movies={dramaMovies} />
+            <Row title='War' movies={war} />
+            <Row title='Science Fiction' movies={sciencefiction} />
           </section>
         </main>
         {showModal && <Modal />}

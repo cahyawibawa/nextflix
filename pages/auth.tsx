@@ -53,8 +53,8 @@ const Auth = () => {
       <div className='bg-black w-full h-full lg:bg-opacity-50'>
         <nav className='px-12 py-5'>
           <Image
-            src='/images/logo.png'
-            alt='Netflix Logo'
+            src='/images/nextflix.png'
+            alt='Nextflix Logo'
             height={12}
             width={100}
           />
@@ -104,9 +104,9 @@ const Auth = () => {
               </div>
               <div
                 onClick={() => signIn('github', { callbackUrl: '/' })}
-                className='w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition'
+                className='w-10 h-10 rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition'
               >
-                <FaGithub size={32} />
+                <FaGithub size={40} />
               </div>
             </div>
             <p className='text-neutral-500 mt-12'>
