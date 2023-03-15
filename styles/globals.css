@@ -1,9 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  @apply bg-zinc-900 h-full overflow-x-hidden;
+@layer base {
+  body {
+    @apply bg-zinc-900 h-full overflow-x-hidden text-white !scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600;
+  }
 }
 
 #__next {
@@ -12,4 +13,43 @@ body {
 
 html {
   @apply h-full;
+}
+@layer components {
+  .headerLink {
+    @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3];
+  }
+
+  .input {
+    @apply w-full rounded bg-[#333333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
+  }
+
+  .bannerButton {
+    @apply flex items-center gap-x-2 rounded py-1 md:py-2 
+              px-2 md:px-4 text-sm font-semibold transition hover:opacity-75 md:text-xl;
+  }
+
+  .modalButton {
+    @apply flex h-11 w-11 items-center justify-center rounded-full border-2 border-[gray] bg-[#2a2a2a]/60 transition hover:border-white hover:bg-white/10;
+  }
+
+  .membershipLink {
+    @apply cursor-pointer text-blue-500 hover:underline;
+  }
+
+  .planBox {
+    @apply relative mx-1.5 flex h-20 w-[calc(100%/3)] cursor-default items-center justify-center rounded-sm bg-[#e50914] font-semibold shadow after:absolute after:top-full after:left-1/2 after:block after:-translate-x-1/2 after:border-8 after:border-b-0 after:border-transparent after:border-t-[#e50914] after:content-[""] md:h-32 lg:mx-8;
+  }
+
+  /* Table */
+  .tableRow {
+    @apply flex flex-wrap items-center font-medium;
+  }
+
+  .tableDataTitle {
+    @apply w-full p-2.5 text-center text-sm font-normal text-white md:w-2/5 md:p-3.5 md:text-left md:text-base;
+  }
+
+  .tableDataFeature {
+    @apply w-[calc(100%/3)] p-2.5 text-center md:w-[calc(60%/3)] md:p-3.5;
+  }
 }
