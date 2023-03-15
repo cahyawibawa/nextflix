@@ -3,17 +3,17 @@
     "components\\FavoriteButton.tsx": true,
     "components\\InfoModal.tsx": true,
     "components\\PlayButton.tsx": true,
-    "components\\variants": true,
     "hooks\\useBillboard.ts": true,
     "hooks\\useFavorites.ts": true,
     "hooks\\useInfoModalStore.ts": true,
-    "hooks\\useMovieList.ts": true,
     "hooks\\useMovie.ts": true,
     "hooks\\useList.tsx": true,
     "pages\\api\\movies": true,
     "pages\\api\\favorite.ts": true,
     "pages\\api\\favorites.ts": true,
     "pages\\watch": true,
-    "firebase.ts": true
+    "firebase.ts": true,
+    "hooks\\useMovieList.ts": true,
+    "components\\variants": true
   }
 }
