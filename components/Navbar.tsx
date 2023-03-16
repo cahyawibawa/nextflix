@@ -9,7 +9,7 @@ import AccountMenu from '@/components/AccountMenu';
 import MobileMenu from '@/components/MobileMenu';
 import NavbarItem from '@/components/NavbarItem';
 
-const TOP_OFFSET = 66;
+const TOP_OFFSET = 50;
 
 const Navbar = () => {
   const [showAccountMenu, setShowAccountMenu] = useState(false);
@@ -45,7 +45,7 @@ const Navbar = () => {
     <nav className='w-full fixed z-40'>
       <div
         className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${
-          showBackground ? 'bg-zinc-900/90' : ''
+          showBackground ? 'bg-zinc-900 bg-opacity-90' : ''
         }`}
       >
         <img src='/images/nextflix.png' className='h-4 lg:h-7' alt='Logo' />
