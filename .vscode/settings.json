@@ -12,8 +12,9 @@
     "pages\\api\\favorite.ts": true,
     "pages\\api\\favorites.ts": true,
     "pages\\watch": true,
-    "firebase.ts": true,
     "hooks\\useMovieList.ts": true,
-    "components\\variants": true
+    "components\\variants": true,
+    "hooks\\useAuth.tsx": true,
+    "firebase.ts": true
   }
 }
